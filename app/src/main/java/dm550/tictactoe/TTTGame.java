@@ -4,7 +4,7 @@ package dm550.tictactoe;
  * defines the game play
  */
 public class TTTGame implements Game {
-    //this is a test
+    //this is a test2
     /** currently active player */
     private int currentPlayer;
 
