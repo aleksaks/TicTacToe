@@ -52,9 +52,10 @@ public class TTTBoard {
      * checks that the player number is valid 
      */
     public void addMove(Coordinate c, int player) {
-        if (c.checkBoundaries(size,size))
+        if (c.checkBoundaries(size,size)) {
             if (player < this.size)
-                board[c.getX()][c.getY()]=player;
+                board[c.getX()][c.getY()] = player;
+        }
         else
             throw new IllegalArgumentException();
 
