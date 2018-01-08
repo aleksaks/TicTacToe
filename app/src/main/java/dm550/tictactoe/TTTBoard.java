@@ -33,12 +33,18 @@ public class TTTBoard {
     
     /** checks whether the board is free at the given position */
     public boolean isFree(Coordinate c) {
-        // TODO
+        if (board[c.getX()][c.getY()]==0)
+            return true;
+        else
+            return false;
     }
     
     /** returns the players that made a move on (x,y) or 0 if the positon is free */
     public int getPlayer(Coordinate c) {
-        // TODO
+        if (!isFree(c))
+            return board[c.getX()][c.getY()];
+        else
+            return 0;
     }
     
     /** record that a given player made a move at the given position
@@ -46,23 +52,37 @@ public class TTTBoard {
      * checks that the player number is valid 
      */
     public void addMove(Coordinate c, int player) {
-        // TODO
+        if (c.checkBoundaries(size,size))
+            if (player < this.size)
+                board[c.getX()][c.getY()]=player;
+        else
+            throw new IllegalArgumentException();
+
+
+
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
     public boolean checkFull() {
-        // TODO
+        for(int x = 0; x < size; x++)
+            for (int y = 0; y < size; x++)
+            {
+                if(board[x][y]==0)
+                    return false;
+            }
+        return true;
     }
 
     /** returns 0 if no player has won (yet)
      * otherwise returns the number of the player that has three in a row
      */
     public int checkWinning() {
-        // TODO
+        return 0;
     }
     
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
+        return 0;
         // TODO
     }
     

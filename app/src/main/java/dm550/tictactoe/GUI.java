@@ -1,11 +1,7 @@
 package dm550.tictactoe;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-
-import javax.swing.*;
-import javax.swing.border.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements UserInterface, MouseListener {
