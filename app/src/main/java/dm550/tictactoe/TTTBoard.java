@@ -81,20 +81,35 @@ public class TTTBoard {
      */
     public int checkWinning() {
         int result = 0;
-        for(int x = 0; x>=size;x++) {
-            for (int y = 0; y >= (size - 3); y++) {
-                System.out.println("sutminpik");Coordinate start = new XYCoordinate(x, y);
+        for(int x = 0; x < size;x++) {
+            for (int y = 0; y < (size - 2); y++) {
+                Coordinate start = new XYCoordinate(x, y);
                 result = checkSequence(start, 0, 1);
-                System.out.println("y: " + result);
                 if (result > 0)
                     return result;
             }
         }
-        for(int x = 0; x>=(size-3);x++) {
-            for (int y = 0; y >= size; y++) {
+        for(int x = 0; x < (size-2);x++) {
+            for (int y = 0; y < size; y++) {
                 Coordinate start = new XYCoordinate(x, y);
                 result = checkSequence(start, 1, 0);
-                System.out.println("x: " + result);
+                if (result > 0)
+                    return result;
+            }
+
+        }
+        for(int x = 0; x < (size-2);x++) {
+            for (int y = 0; y < (size - 2); y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 1, 1);
+                if (result > 0)
+                    return result;
+            }
+        }
+        for(int x = 0; x < (size-2);x++) {
+            for (int y = 2; y < (size); y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 1, -1);
                 if (result > 0)
                     return result;
             }
@@ -112,8 +127,9 @@ public class TTTBoard {
         int currentPlayer = board[x][y];
         for (int i = 0; i < 2; i++)
         {
-
-            if(board[x+dx][y+dy]==currentPlayer){
+            x += dx;
+            y += dy;
+            if(board[x][y]==currentPlayer){
                 count++;
             }
         }
