@@ -53,6 +53,7 @@ public class TTTBoard {
      */
     public void addMove(Coordinate c, int player) {
         if (c.checkBoundaries(size,size)) {
+        //if (true) {
             if (player < this.size)
                 board[c.getX()][c.getY()] = player;
         }
