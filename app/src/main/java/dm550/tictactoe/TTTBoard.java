@@ -108,25 +108,18 @@ public class TTTBoard {
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
         int count = 1;
-        int x = start.getX();
-        int y = start.getY();
-        int currentPlayer = board[x][y];
+        int currentPlayer = board[start.getX()][start.getY()];
         for (int i = 0; i < 2; i++)
         {
-            x+=dx;
-            y+=dy;
-            if(board[x][y]==currentPlayer){
+            start = start.shift(dx,dy);
+            if(board[start.getX()][start.getY()]==currentPlayer)
                 count++;
-            }
         }
         if (count ==3)
-        {
             return currentPlayer;
-        }
         else
-        {
             return 0;
-        }
+
 
         // TODO
     }

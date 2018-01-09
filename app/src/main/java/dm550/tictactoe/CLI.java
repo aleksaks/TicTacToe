@@ -1,6 +1,6 @@
 package dm550.tictactoe;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class CLI implements UserInterface {
 
