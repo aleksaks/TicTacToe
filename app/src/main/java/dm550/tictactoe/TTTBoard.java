@@ -53,7 +53,6 @@ public class TTTBoard {
      */
     public void addMove(Coordinate c, int player) {
         if (c.checkBoundaries(size,size)) {
-        //if (true) {
             if (player < this.size)
                 board[c.getX()][c.getY()] = player;
         }
@@ -67,7 +66,7 @@ public class TTTBoard {
     /** returns true if, and only if, there are no more free positions on the board */
     public boolean checkFull() {
         for(int x = 0; x < size; x++)
-            for (int y = 0; y < size; x++)
+            for (int y = 0; y < size; y++)
             {
                 if(board[x][y]==0)
                     return false;
@@ -79,12 +78,34 @@ public class TTTBoard {
      * otherwise returns the number of the player that has three in a row
      */
     public int checkWinning() {
+        for (min(0,(x-1)), x<x+1, x++)
+            for()
+
+
         return 0;
     }
     
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
-        return 0;
+        int count = 1;
+        int x = start.getX();
+        int y = start.getY();
+        int currentPlayer = board[x][y];
+        for (int i = 0; i < 2; i++)
+        {
+            if(board[x+dx][y+dy]==currentPlayer){
+                count++;
+            }
+        }
+        if (count ==3)
+        {
+            return currentPlayer;
+        }
+        else
+        {
+            return 0;
+        }
+
         // TODO
     }
     
