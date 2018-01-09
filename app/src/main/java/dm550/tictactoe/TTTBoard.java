@@ -100,6 +100,22 @@ public class TTTBoard {
                     return result;
             }
         }
+        for(int x = 0; x < (size-2);x++) {
+            for (int y = 0; y < (size - 2); y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 1, 1);
+                if (result > 0)
+                    return result;
+            }
+        }
+        for(int x = 0; x < (size-2);x++) {
+            for (int y = 2; y < (size); y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 1, -1);
+                if (result > 0)
+                    return result;
+            }
+        }
 
 
         return result;
@@ -109,7 +125,7 @@ public class TTTBoard {
     private int checkSequence(Coordinate start, int dx, int dy) {
         int count = 1;
         int currentPlayer = board[start.getX()][start.getY()];
-        for (int i = 0; i < 2; i++)
+        for (int i = 1; i < 3; i++)
         {
             start = start.shift(dx,dy);
             if(board[start.getX()][start.getY()]==currentPlayer)
