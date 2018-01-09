@@ -53,8 +53,10 @@ public class TTTBoard {
      */
     public void addMove(Coordinate c, int player) {
         if (c.checkBoundaries(size,size)) {
-            if (player < this.size)
+            if (player < this.size){
                 board[c.getX()][c.getY()] = player;
+            }
+
         }
         else
             throw new IllegalArgumentException();
@@ -78,11 +80,26 @@ public class TTTBoard {
      * otherwise returns the number of the player that has three in a row
      */
     public int checkWinning() {
-        for (min(0,(x-1)), x<x+1, x++)
-            for()
+        int result = 0;
+        for(int x = 0; x>=size;x++) {
+            for (int y = 0; y >= (size - 3); y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 0, 1);
+                if (result > 0)
+                    return result;
+            }
+        }
+        for(int x = 0; x>=(size-3);x++) {
+            for (int y = 0; y >= size; y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                result = checkSequence(start, 1, 0);
+                if (result > 0)
+                    return result;
+            }
+        }
 
 
-        return 0;
+        return result;
     }
     
     /** internal helper function checking one row, column, or diagonal */
@@ -93,6 +110,7 @@ public class TTTBoard {
         int currentPlayer = board[x][y];
         for (int i = 0; i < 2; i++)
         {
+
             if(board[x+dx][y+dy]==currentPlayer){
                 count++;
             }
