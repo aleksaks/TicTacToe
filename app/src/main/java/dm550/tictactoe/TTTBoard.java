@@ -83,10 +83,8 @@ public class TTTBoard {
         int result = 0;
         for(int x = 0; x<size;x++) {
             for (int y = 0; y < (size - 2); y++) {
-                //System.out.println("sutminpik");
                 Coordinate start = new XYCoordinate(x, y);
                 result = checkSequence(start, 0, 1);
-                //System.out.println("y: " + result);
                 if (result > 0)
                     return result;
             }
@@ -116,8 +114,7 @@ public class TTTBoard {
                     return result;
             }
         }
-
-
+        System.out.println("what"+result);
         return result;
     }
     
