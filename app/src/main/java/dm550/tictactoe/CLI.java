@@ -32,7 +32,7 @@ public class CLI implements UserInterface {
     @Override
     public void startGame(Game game) {
         game.setUserInterface(this);
-        while (true) {
+        while (true ){
             System.out.println(game);
             game.checkResult();
             Coordinate pos = null;
