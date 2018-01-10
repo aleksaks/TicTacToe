@@ -106,10 +106,10 @@ public class TTTBoard {
                     return result;
             }
         }
-        for(int x = 0; x < (size-2);x++) {
-            for (int y = 2; y < (size); y++) {
+        for(int x = 2; x < size;x++) {
+            for (int y = 0; y < (size-2); y++) {
                 Coordinate start = new XYCoordinate(x, y);
-                result = checkSequence(start, 1, -1);
+                result = checkSequence(start, -1, 1);
                 if (result > 0)
                     return result;
             }
