@@ -53,10 +53,9 @@ public class TTTBoard {
      */
     public void addMove(Coordinate c, int player) {
         try {
-            if (c.checkBoundaries(size, size)) {
-                if (player < this.size) {
+            if (c.checkBoundaries(size, size) ) {
+                if (player > 0)
                     board[c.getX()][c.getY()] = player;
-                }
             }
         }
         catch(IllegalArgumentException e){
@@ -115,11 +114,9 @@ public class TTTBoard {
                 if (getPlayer(start) == currentPlayer)
                     count++;
             }
-            //If 2nd neighbouring cell is not marked by current player - there is no point in checking the 3rd cell
-            else {
-                i = 3;
-            }
-
+            //If 2nd neighbouring cell is not marked by current player - there is no point to continue the checking process
+            else
+                break;
         }
         if (count ==3)
             return currentPlayer;

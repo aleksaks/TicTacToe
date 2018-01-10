@@ -26,7 +26,7 @@ public class XYCoordinate implements Coordinate {
 
     @Override
     public boolean checkBoundaries(int xSize, int ySize) {
-        if (x >= 0 && y >= 0 & (xSize-1)>=x && (ySize-1)>=y)
+        if (x >= 0 && y >= 0 && (xSize-1)>=x && (ySize-1)>=y)
             return true;
         else
             return false;
