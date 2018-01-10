@@ -81,39 +81,6 @@ public class TTTBoard {
      */
     public int checkWinning() {
         int result = 0;
-//        for(int x = 0; x<size;x++) {
-//            for (int y = 0; y < (size - 2); y++) {
-//                Coordinate start = new XYCoordinate(x, y);
-//                result = checkSequence(start, 0, 1);
-//                if (result > 0)
-//                    return result;
-//            }
-//        }
-//        for(int x = 0; x<(size-2);x++) {
-//            for (int y = 0; y < size; y++) {
-//                Coordinate start = new XYCoordinate(x, y);
-//                result = checkSequence(start, 1, 0);
-//                System.out.println("x: " + result);
-//                if (result > 0)
-//                    return result;
-//            }
-//        }
-//        for(int x = 0; x < (size-2);x++) {
-//            for (int y = 0; y < (size - 2); y++) {
-//                Coordinate start = new XYCoordinate(x, y);
-//                result = checkSequence(start, 1, 1);
-//                if (result > 0)
-//                    return result;
-//            }
-//        }
-//        for(int x = 2; x < size;x++) {
-//            for (int y = 0; y < (size-2); y++) {
-//                Coordinate start = new XYCoordinate(x, y);
-//                result = checkSequence(start, -1, 1);
-//                if (result > 0)
-//                    return result;
-//            }
-//        }
         for(int x = 0; x<size;x++) {
             for (int y = 0; y < size; y++) {
                 Coordinate start = new XYCoordinate(x, y);

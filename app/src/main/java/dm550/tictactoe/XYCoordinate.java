@@ -26,7 +26,6 @@ public class XYCoordinate implements Coordinate {
 
     @Override
     public boolean checkBoundaries(int xSize, int ySize) {
-        System.out.println("Size: " + xSize + " y: " + y + " x: " + x);
         if (x >= 0 && y >= 0 & (xSize-1)>=x && (ySize-1)>=y)
             return true;
         else
