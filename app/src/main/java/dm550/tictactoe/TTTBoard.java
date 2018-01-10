@@ -83,36 +83,42 @@ public class TTTBoard {
         for(int x = 0; x<size;x++) {
             for (int y = 0; y < size; y++) {
                 Coordinate start = new XYCoordinate(x, y);
-                result = checkSequence(start, 0, 1);
-                if(result>0)
-                    return result;
-                result = checkSequence(start, 1, 0);
-                if(result>0)
-                    return result;
-                result = checkSequence(start, 1, 1);
-                if(result>0)
-                    return result;
-                result = checkSequence(start, -1, 1);
-                if(result>0)
-                    return result;
+                //We are interested in checking cells that are not free
+                if(!isFree(start)) {
+                        result = checkSequence(start, 0, 1);
+                        if (result > 0)
+                            return result;
+                        result = checkSequence(start, 1, 0);
+                        if (result > 0)
+                            return result;
+                        result = checkSequence(start, 1, 1);
+                        if (result > 0)
+                            return result;
+                        result = checkSequence(start, -1, 1);
+                        if (result > 0)
+                            return result;
+                    }
+                }
             }
-        }
         return result;
     }
     
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
+        //The
         int count = 1;
-        int currentPlayer = board[start.getX()][start.getY()];
+        int currentPlayer = getPlayer(start);
         for (int i = 1; i < 3; i++)
         {
             start = start.shift(dx,dy);
             if(start.checkBoundaries(size,size)) {
-                if (board[start.getX()][start.getY()] == currentPlayer)
+                if (getPlayer(start) == currentPlayer)
                     count++;
             }
-            else
-                i=3;
+            //If 2nd neighbouring cell is not marked by current player - there is no point in checking the 3rd cell
+            else {
+                i = 3;
+            }
 
         }
         if (count ==3)
