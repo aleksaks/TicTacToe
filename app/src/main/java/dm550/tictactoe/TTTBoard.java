@@ -52,17 +52,16 @@ public class TTTBoard {
      * checks that the player number is valid 
      */
     public void addMove(Coordinate c, int player) {
-        if (c.checkBoundaries(size,size)) {
-            if (player < this.size){
-                board[c.getX()][c.getY()] = player;
+        try {
+            if (c.checkBoundaries(size, size)) {
+                if (player < this.size) {
+                    board[c.getX()][c.getY()] = player;
+                }
             }
-
         }
-        else
-            throw new IllegalArgumentException();
-
-
-
+        catch(IllegalArgumentException e){
+            System.out.println("Illegal argument exception: " + e.toString());
+        }
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
