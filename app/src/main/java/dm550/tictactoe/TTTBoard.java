@@ -79,26 +79,42 @@ public class TTTBoard {
      */
     public int checkWinning() {
         int result = 0;
+        //checking all column and diagonal sequences (they all can only start from a particular segment of the board
         for(int x = 0; x<size;x++) {
-            for (int y = 0; y < size; y++) {
+            for (int y = 0; y < size-2; y++) {
                 Coordinate start = new XYCoordinate(x, y);
                 //We are interested in checking cells that are not free
                 if(!isFree(start)) {
-                        result = checkSequence(start, 0, 1);
-                        if (result > 0)
-                            return result;
-                        result = checkSequence(start, 1, 0);
-                        if (result > 0)
-                            return result;
+                     result = checkSequence(start, 0, 1);
+                    if (result > 0)
+                        return result;
+                    //Checking diagonal only for x smaller than size-2
+                    if(x<(size-2)) {
                         result = checkSequence(start, 1, 1);
                         if (result > 0)
                             return result;
+                    }
+                    //Checking backward diagonal only for x larger than 2
+                    if(x>1) {
                         result = checkSequence(start, -1, 1);
                         if (result > 0)
                             return result;
                     }
                 }
             }
+        }
+        //Checking all rows sequences
+        for(int x = 0; x<size-2;x++) {
+            for (int y = 0; y < size; y++) {
+                Coordinate start = new XYCoordinate(x, y);
+                //We are interested in checking cells that are not free
+                if(!isFree(start)) {
+                    result = checkSequence(start, 1, 0);
+                    if (result > 0)
+                        return result;
+                }
+            }
+        }
         return result;
     }
     
